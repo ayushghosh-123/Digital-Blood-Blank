@@ -1,4 +1,4 @@
-import React from "react";
+
 import Form from "../../components/shared/form/Form";
 
 function Register() {
@@ -20,7 +20,7 @@ function Register() {
           <div className="w-full md:w-1/2 flex flex-col justify-center p-12">
             
             <br />
-            <Form formTitle={'Registration-Page'} submitbutton={'Register'} fromType={'Register'} />
+            <Form formTitle={'Registration-Page'} submitbutton={'Register'} formType={'Register'} />
           </div>
         </div>
       </div>

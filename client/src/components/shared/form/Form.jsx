@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Inputtype from "./Inputtype";
 import { Link } from "react-router-dom";
 import { handleLogin, handleRegister } from "../../../services/authservice";
 
-function Form({ fromType, submitbutton, formTitle }) {
+function Form({formType, formTitle, formType}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -15,10 +15,10 @@ function Form({ fromType, submitbutton, formTitle }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (fromType === "login") {
-      console.log("i am inside handle submit .......")
+    if (formType === "login") {
+      console.log("i am inside handle submit .......");
       handleLogin(e, email, password, role);
-    } else if (fromType === "register") {
+    } else if (formType === "register") {
       handleRegister(
         e,
         name,
@@ -42,73 +42,30 @@ function Form({ fromType, submitbutton, formTitle }) {
         <br />
 
         <div className="flex gap-1.5 mb-3">
-          <div className="form-check me-3">
-            <input
-              type="radio"
-              className="form-check-input"
-              id="donor"
-              name="role"
-              value="donor"
-              checked={role === "donor"}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label htmlFor="donor" className="form-check-label">
-              Donor
-            </label>
-          </div>
-
-          <div className="form-check">
-            <input
-              type="radio"
-              className="form-check-input"
-              id="Admin"
-              name="role"
-              value="Admin"
-              checked={role === "Admin"}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label htmlFor="Admin" className="form-check-label">
-              Admin
-            </label>
-          </div>
-
-          <div className="form-check">
-            <input
-              type="radio"
-              className="form-check-input"
-              id="Hospital"
-              name="role"
-              value="Hospital"
-              checked={role === "Hospital"}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label htmlFor="Hospital" className="form-check-label">
-              Hospital
-            </label>
-          </div>
-
-          <div className="form-check">
-            <input
-              type="radio"
-              className="form-check-input"
-              id="Organization"
-              name="role"
-              value="Organization"
-              checked={role === "Organization"}
-              onChange={(e) => setRole(e.target.value)}
-            />
-            <label htmlFor="Organization" className="form-check-label">
-              Organization
-            </label>
-          </div>
+          {["donor", "Admin", "Hospital", "Organization"].map((r) => (
+            <div className="form-check me-3" key={r}>
+              <input
+                type="radio"
+                className="form-check-input"
+                id={r}
+                name="role"
+                value={r}
+                checked={role === r}
+                onChange={(e) => setRole(e.target.value)}
+              />
+              <label htmlFor={r} className="form-check-label">
+                {r}
+              </label>
+            </div>
+          ))}
         </div>
 
-        {fromType === "login" && (
+        {formType === "login" && (
           <>
             <Inputtype
               labeltext="Email"
               labelfor="forEmail"
-              Inputtype="email"
+              type="email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -116,7 +73,7 @@ function Form({ fromType, submitbutton, formTitle }) {
             <Inputtype
               labeltext="Password"
               labelfor="forPassword"
-              Inputtype="password"
+              type="password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -124,13 +81,13 @@ function Form({ fromType, submitbutton, formTitle }) {
           </>
         )}
 
-        {fromType === "Register" && (
+        {formType === "register" && (
           <>
             {(role === "Admin" || role === "donor") && (
               <Inputtype
-                labeltext="Name" 
+                labeltext="Name"
                 labelfor="forName"
-                Inputtype="text"
+                type="text"
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -139,7 +96,7 @@ function Form({ fromType, submitbutton, formTitle }) {
             <Inputtype
               labeltext="Email"
               labelfor="forEmail"
-              Inputtype="email"
+              type="email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -147,7 +104,7 @@ function Form({ fromType, submitbutton, formTitle }) {
             <Inputtype
               labeltext="Password"
               labelfor="forPassword"
-              Inputtype="password"
+              type="password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -156,7 +113,7 @@ function Form({ fromType, submitbutton, formTitle }) {
               <Inputtype
                 labeltext="Organization"
                 labelfor="forOrganization"
-                Inputtype="text"
+                type="text"
                 name="organization"
                 value={organization}
                 onChange={(e) => setOrganization(e.target.value)}
@@ -166,7 +123,7 @@ function Form({ fromType, submitbutton, formTitle }) {
               <Inputtype
                 labeltext="Hospital"
                 labelfor="forHospital"
-                Inputtype="text"
+                type="text"
                 name="hospital"
                 value={hospital}
                 onChange={(e) => setHospital(e.target.value)}
@@ -175,7 +132,7 @@ function Form({ fromType, submitbutton, formTitle }) {
             <Inputtype
               labeltext="Website"
               labelfor="forWebsite"
-              Inputtype="text"
+              type="text"
               name="website"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
@@ -183,7 +140,7 @@ function Form({ fromType, submitbutton, formTitle }) {
             <Inputtype
               labeltext="Address"
               labelfor="forAddress"
-              Inputtype="text"
+              type="text"
               name="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -193,7 +150,7 @@ function Form({ fromType, submitbutton, formTitle }) {
 
         <br />
         <div className="flex flex-row justify-content-between gap-1.5">
-          {fromType === "login" ? (
+          {formType === "login" ? (
             <p>
               Not registered yet? Register
               <Link to="/register" className="text-red-600 font-bold underline">
