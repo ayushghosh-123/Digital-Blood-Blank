@@ -15,14 +15,14 @@ export const handleLogin = (e, email, password, role) => {
     }
 };
 
-export const handleRegister = (e, name, email, password, role, organization, hospital, website, address) => {
+export const handleRegister = (e, name, email, password, role, organization, hospital, website, address, phone, city, country) => {
     e.preventDefault();
     try {
         if (!role || !email || !password || !name) {
             return alert("Please fill all fields");
         }
         console.log("Registering...");
-        store.dispatch(Userregister({ name, email, password, role, organization, hospital, website, address }));
+        store.dispatch(Userregister({ name, email, password, role, organization, hospital, website, address, phone, city, country }));
         
     } catch (error) {
         console.error("Register Error:", error);

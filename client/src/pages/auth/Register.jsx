@@ -20,7 +20,7 @@ function Register() {
           <div className="w-full md:w-1/2 flex flex-col justify-center p-12">
             
             <br />
-            <Form formTitle={'Registration-Page'} submitbutton={'Register'} formType={'Register'} />
+            <Form formTitle={'Registration-Page'} submitbutton={'Register'} formType={'register'} />
           </div>
         </div>
       </div>
