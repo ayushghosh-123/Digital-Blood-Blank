@@ -1,15 +1,16 @@
-function InputType({ labelText, labelFor, value, onChange, name, inputType }) {
+
+function Inputtype({ labeltext, labelfor,value, onChange, name, Inputtype }) {
   return (
     <>
       <div className="space-y-4">
         <label
-          htmlFor={labelFor}
+          htmlFor={labelfor}
           className="block text-lg font-medium text-gray-700"
         >
-          {labelText}
+          {labeltext}
         </label>
         <input
-          type={inputType}
+          type={Inputtype}
           placeholder="Enter your email"
           className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           name={name}
@@ -21,5 +22,5 @@ function InputType({ labelText, labelFor, value, onChange, name, inputType }) {
   );
 }
 
-export default InputType;
+export default Inputtype;
 
