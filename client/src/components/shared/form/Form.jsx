@@ -72,7 +72,7 @@ function Form({ formType, formTitle }) {
             <Inputtype
               labeltext="Email"
               labelfor="forEmail"
-              type="email"
+              Inputtype="email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -200,7 +200,7 @@ function Form({ formType, formTitle }) {
           type="submit"
           className="w-full bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-amber-400 transition duration-300"
         >
-          {formType === "login" ? "Login" : "Register"}
+          {formType === "login" ? "login" : "register"}
         </button>
       </form>
     </div>

@@ -1,17 +1,15 @@
-import React from "react";
-
-function Inputtype({ labelfor, labeltext, value, onChange, name, Inputtype }) {
+function InputType({ labelText, labelFor, value, onChange, name, inputType }) {
   return (
     <>
       <div className="space-y-4">
         <label
-          htmlFor={labelfor}
+          htmlFor={labelFor}
           className="block text-lg font-medium text-gray-700"
         >
-          {labeltext}
+          {labelText}
         </label>
         <input
-          type={Inputtype}
+          type={inputType}
           placeholder="Enter your email"
           className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           name={name}
@@ -23,5 +21,5 @@ function Inputtype({ labelfor, labeltext, value, onChange, name, Inputtype }) {
   );
 }
 
-export default Inputtype;
+export default InputType;
 
