@@ -1,4 +1,13 @@
-i make a blood-blank website where using gps featre to connect the user to the blood donar and hospital and organization
- 
-
 ## DIGITAL BLOOD-BANK
+Hello everyone I make this website Blood Bank. where I use MERN stack algorithm.
+
+
+
+
+## Tech Stack
+
+**Client:** Reactjs, Redux, TailwindCSS
+
+**Server:** Node, Express
+
+**Database:** mongodb
