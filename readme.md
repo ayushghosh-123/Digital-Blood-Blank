@@ -9,7 +9,7 @@ Hello everyone I make this website Blood Bank. where I use MERN stack algorithm.
 >scan the client blood report
 
 ---
-## Tech Stack
+⚒️ Tech Stack
 
 **Client:** Reactjs, Redux, TailwindCSS
 
