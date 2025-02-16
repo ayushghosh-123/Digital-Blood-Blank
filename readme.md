@@ -19,6 +19,12 @@ Hello everyone I make this website Blood Bank. where I use MERN stack algorithm.
 
 ## Run code -
 
-1. For backend - `npm run start`
+1. For backend - 
+```reactjs
+npm run start
+```
 
-2. For frontend(client)- `npm run dev`
+2. For frontend(client)- 
+```Express
+npm run dev
+```
